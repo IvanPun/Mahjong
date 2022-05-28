@@ -1,4 +1,3 @@
-#!/bin/python3
 import pandas
 
 ### 定義寫入數據的函數

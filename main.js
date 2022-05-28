@@ -3,6 +3,11 @@ function fetch_page() {
        .then(Response => Response.json())
        .then(json => {
 
+       	headers : { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+       }
+       	
          s='';
          for(i=0;i<json.length;i++){
          	num = i+1;

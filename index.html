@@ -73,7 +73,7 @@
 
   import { doc, getDoc } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-firestore.js";
 
-  const docRef = doc(db, "cities", "SF", "country");
+  const docRef = doc(db, "cities", "SF");
   const docSnap = await getDoc(docRef);
 
   if (docSnap.exists()) {

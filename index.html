@@ -73,14 +73,17 @@
 
   function writeUserData(userId, name, email) {
     const db = getDatabase();
-    set(ref(db, 'IvanPun' + userId), {
+    set(ref(db, 'Ivan' + userId), {
       username: name,
       email: email,
     });
     console.log(db);
   }
 
-  writeUserData(Pun, Ivan, whitetiger123asd);
+  const userId = Pun;
+  const name = Ivan;
+  const email = whitetiger;
+  writeUserData(userId, name, email);
 
 </script>
 <script type="text/javascript" src="main.js"></script>

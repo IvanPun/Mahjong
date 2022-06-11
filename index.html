@@ -71,7 +71,7 @@
   const database = getDatabase();
   console.log(database);
 
-  import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
+  import { ref, set } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
 
   function writeUserData(userId, name, email, imageUrl) {
     const db = getDatabase();
@@ -81,7 +81,7 @@
       profile_picture : imageUrl
     });
   }
-  
+
 </script>
 <script type="text/javascript" src="main.js"></script>
 </html>

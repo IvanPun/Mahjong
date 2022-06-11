@@ -71,6 +71,17 @@
   const database = getDatabase();
   console.log(database);
 
+  import { getDatabase, ref, set } from "firebase/database";
+
+  function writeUserData(userId, name, email, imageUrl) {
+    const db = getDatabase();
+    set(ref(db, 'users/' + userId), {
+      username: name,
+      email: email,
+      profile_picture : imageUrl
+    });
+  }
+  
 </script>
 <script type="text/javascript" src="main.js"></script>
 </html>

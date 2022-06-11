@@ -71,14 +71,15 @@
 
   import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
 
-  function writeUserData(userId, name, email, imageUrl) {
+  function writeUserData(userId, name, email) {
     const db = getDatabase();
     set(ref(db, 'IvanPun' + userId), {
       username: name,
       email: email,
-      profile_picture : imageUrl
     });
   }
+
+  writeUserData(IvanPun, Ivan, whitetiger123asd@gmail.com);
 
 </script>
 <script type="text/javascript" src="main.js"></script>

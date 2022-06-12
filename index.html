@@ -82,6 +82,19 @@
 
   writeUserData('Pun', 'Ivan', 'whitetiger');
 
+  import { getDatabase, ref, child, get } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
+
+  const dbRef = ref(getDatabase());
+  get(child(dbRef, 'IvanPun')).then((snapshot) => {
+    if (snapshot.exists()) {
+      console.log(snapshot.val());
+    } else {
+      console.log("No data available");
+    }
+  }).catch((error) => {
+    console.error(error);
+  });
+
 </script>
 <script type="text/javascript" src="main.js"></script>
 </html>

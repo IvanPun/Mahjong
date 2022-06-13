@@ -14,6 +14,6 @@ function add_people(){
   document.getElementById("add-people").innerHTML += s;
 }
 
-function reload() {
+setTimeout(function reload() {
   document.location.reload();
-}
+}, 5000);

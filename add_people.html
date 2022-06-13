@@ -78,16 +78,22 @@
     name = document.getElementById("player").value;
     const db = getDatabase();
     const dbRef = ref(getDatabase());
-    get(child(dbRef, 'IvanPun')).then((snapshot) => {
-      if (snapshot.exists()) {
-        console.log(snapshot.val().email);
-      } else {
-        console.log("No data available");
-      }
-    }).catch((error) => {
-      console.error(error);
-    });
+    try{
+      get(child(dbRef, 'ivanpun')).then((snapshot) => {
+        if (snapshot.exists()) {
+          console.log(snapshot.val().name);
+        } else {
+          console.log("No data available");
+        }
+      }).catch((error) => {
+        console.error(error);
+      });
+    }
+    catch(err){
+      console.log(error);
+    }
     
+
     set(ref(db, 'now_data/' + name), {
         money: 0,
     });

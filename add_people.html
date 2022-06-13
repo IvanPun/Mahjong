@@ -78,17 +78,17 @@
     name = document.getElementById("player").value;
     const db = getDatabase();
 
-    set(ref(db, 'now_data/' + name), {
+    setTimeout(set(ref(db, 'now_data/' + name), {
         money: 0,
-    },1000);
+    }),1000);
 
-    update(ref(db),{
+    setTimeout(update(ref(db),{
       ['now_data/' + name]:{
         money:0
       }
-    },1000);
+    }),1000);
     alert("一位賭鬼已加入");
-    document.location.reload();
+    
   }
 
   document.getElementById("submit").onclick=writePlayer;

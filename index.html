@@ -72,20 +72,11 @@
 
   import { getDatabase, ref, child, get, set } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
 
-  function writeUserData(userId, name, email) {
-    const db = getDatabase();
-    set(ref(db, 'Ivan' + userId), {
-      username: name,
-      email: email,
-    });
-    console.log(db);
-  }
-
-
   const dbRef = ref(getDatabase());
-  get(child(dbRef, 'IvanPun')).then((snapshot) => {
+  get(child(dbRef, 'now_data')).then((snapshot) => {
     if (snapshot.exists()) {
-      console.log(snapshot.val().email);
+
+      console.log(snapshot.val().ivan);
     } else {
       console.log("No data available");
     }

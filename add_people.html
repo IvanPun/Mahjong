@@ -78,6 +78,10 @@
     name = document.getElementById("player").value;
     const db = getDatabase();
 
+    set(ref(db, 'now_data'),{
+      count = 0,
+    })
+
     set(ref(db, 'now_data/' + name), {
         money: 0,
     });
@@ -85,6 +89,9 @@
     update(ref(db),{
       ['now_data/' + name]:{
         money:0
+      };
+      ['now_data']:{
+        count += 1
       }
     });
     alert("一位賭鬼已加入");

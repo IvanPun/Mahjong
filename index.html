@@ -70,13 +70,12 @@
   const analytics = getAnalytics(app);
   // Initialize Cloud Firestore and get a reference to the service
 
-  import { getDatabase, ref, child, get, set, getChildrenCount } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
+  import { getDatabase, ref, child, get, set } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
 
   const dbRef = ref(getDatabase());
   get(child(dbRef, 'now_data')).then((snapshot) => {
     if (snapshot.exists()) {
-      count = snapshot.getChildrenCount();
-      console.log(count);
+      console.log(snapshot.val());
     } else {
       console.log("No data available");
     }

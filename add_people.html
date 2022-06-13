@@ -72,7 +72,7 @@
   const analytics = getAnalytics(app);
   // Initialize Cloud Firestore and get a reference to the service
 
-  import { getDatabase, ref, child, get, set } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
+  import { getDatabase, ref, child, get, set, push } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
 
   function writePlayer() {
     name = document.getElementById("player").value;

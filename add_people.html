@@ -77,7 +77,7 @@
   function writePlayer() {
     name = document.getElementById("player").value;
     const db = getDatabase();
-    set(ref(db, now_data), {
+    set(ref(db, 'now_data'), {
       player: name,
       money: 0,
     });

@@ -77,6 +77,17 @@
   function writePlayer() {
     name = document.getElementById("player").value;
     const db = getDatabase();
+
+    get(child(dbRef, 'IvanPun')).then((snapshot) => {
+      if (snapshot.exists()) {
+        console.log(snapshot.val().email);
+      } else {
+        console.log("No data available");
+      }
+    }).catch((error) => {
+      console.error(error);
+    });
+    
     set(ref(db, 'now_data/' + name), {
         money: 0,
     });

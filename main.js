@@ -13,3 +13,7 @@ function add_people(){
         </div>`
   document.getElementById("add-people").innerHTML += s;
 }
+
+function reload() {
+  document.location.reload();
+}

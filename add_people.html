@@ -74,13 +74,20 @@
 
   import { getDatabase, ref, child, set, update } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
 
+  const dbRef = ref(getDatabase());
+  get(child(dbRef, 'now_data')).then((snapshot) => {
+    if (snapshot.exists()) {
+      num = snapshot.val().count;
+    } 
+  }).catch((error) => {
+    console.error(error);
+  });
+
   function writePlayer() {
     name = document.getElementById("player").value;
     const db = getDatabase();
 
-    set(ref(db, 'now_data'),{
-      count = 0,
-    })
+    num += 1;
 
     set(ref(db, 'now_data/' + name), {
         money: 0,
@@ -91,7 +98,7 @@
         money:0
       };
       ['now_data']:{
-        count += 1
+        count: num
       }
     });
     alert("一位賭鬼已加入");

@@ -75,7 +75,8 @@
   const dbRef = ref(getDatabase());
   get(child(dbRef, 'now_data')).then((snapshot) => {
     if (snapshot.exists()) {
-      console.log((snapshot.val()).length);
+      long count = snapshot.getChildrenCount ();
+      console.log(count);
     } else {
       console.log("No data available");
     }

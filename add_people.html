@@ -77,11 +77,11 @@
   function writePlayer() {
     name = document.getElementById("player").value;
     const db = getDatabase();
-    set(ref(db, 'now_data'), {
-      set(ref(db,name){
-        money: 0,
-      });
-      
+    const postListRef = ref(db, 'new_data');
+    const newPostRef = push(postListRef);
+    set(newPostRef, {
+        player: name;
+        money: 0;
     });
     alert("一位賭鬼已加入");
     window.location.reload();

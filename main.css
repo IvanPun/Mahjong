@@ -9,3 +9,8 @@
 .card{
 	margin: 5%;
 }
+
+#delete_form{
+	position: relative;
+	float: right;
+}

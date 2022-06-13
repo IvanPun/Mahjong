@@ -11,6 +11,6 @@
 }
 
 #delete_form{
-	position: relative;
+	position: absolute;
 	float: right;
 }

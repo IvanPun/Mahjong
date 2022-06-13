@@ -80,13 +80,13 @@
 
     set(ref(db, 'now_data/' + name), {
         money: 0,
-    });
+    },1000);
 
     update(ref(db),{
       ['now_data/' + name]:{
         money:0
       }
-    });
+    },1000);
     alert("一位賭鬼已加入");
     
   }

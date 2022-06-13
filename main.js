@@ -13,7 +13,3 @@ function add_people(){
         </div>`
   document.getElementById("add-people").innerHTML += s;
 }
-
-setTimeout(function reload() {
-  document.location.reload();
-}, 5000);

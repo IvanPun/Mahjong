@@ -77,10 +77,8 @@
   function writePlayer() {
     name = document.getElementById("player").value;
     const db = getDatabase();
-    set(ref(db, 'now_data'), {
-      name{
+    set(ref(db, 'now_data' + name), {
         money: 0;
-      };
     });
     alert("一位賭鬼已加入");
     window.location.reload();

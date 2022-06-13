@@ -82,7 +82,6 @@
     console.log(db);
   }
 
-  writeUserData('Pun', 'Ivan', 'whitetiger');
 
   const dbRef = ref(getDatabase());
   get(child(dbRef, 'IvanPun')).then((snapshot) => {

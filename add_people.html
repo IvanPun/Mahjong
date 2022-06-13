@@ -72,16 +72,15 @@
   const analytics = getAnalytics(app);
   // Initialize Cloud Firestore and get a reference to the service
 
-  import { getDatabase, ref, child, get, set, push } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
+  import { getDatabase, ref, child, get, set } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
 
   function writePlayer() {
     name = document.getElementById("player").value;
     const db = getDatabase();
-    const postListRef = ref(db, 'new_data');
-    const newPostRef = push(postListRef);
-    set(newPostRef, {
-        player: name,
-        money: 0
+    set(ref(db, 'now_data'), {
+      name{
+        money: 0;
+      };
     });
     alert("一位賭鬼已加入");
     window.location.reload();

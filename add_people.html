@@ -84,11 +84,14 @@
     } 
   });
 
+  const num=count;
+  console.log(num);
+
   function writePlayer() {
     name = document.getElementById("player").value;
     const db = getDatabase();
 
-    const num=count
+    
 
     set(ref(db, 'now_data/' + name), {
         money: 0,

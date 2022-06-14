@@ -74,12 +74,13 @@
 
   import { getDatabase, ref, child, set, update, get } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
 
-  const num = 0
+  
 
   const dbRef = ref(getDatabase());
   get(child(dbRef, 'now_data')).then((snapshot) => {
     if (snapshot.exists()) {
-      let num = snapshot.val().count;
+      let count = snapshot.val().count;
+      console.log(count)
     } 
   });
 
@@ -87,7 +88,7 @@
     name = document.getElementById("player").value;
     const db = getDatabase();
 
-    addcount(num);
+    const num=count
 
     set(ref(db, 'now_data/' + name), {
         money: 0,

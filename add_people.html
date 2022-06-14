@@ -97,9 +97,9 @@
   function addCount(){
     const db = getDatabase();
     const dbRef = ref(getDatabase());
-    get(child(dbRef, 'now_data')).then((snapshot) => {
+    get(child(dbRef, 'now_data/' + 'count')).then((snapshot) => {
       if (snapshot.exists()) {
-        var num = snapshot.val().count + 1;
+        var num = snapshot.val().number + 1;
         console.log(num);
 
         update(ref(db),{

@@ -79,6 +79,21 @@
     var name = document.getElementById("player").value;
     const db = getDatabase();
 
+    set(ref(db, 'now_data/' + name), {
+        money: 0,
+    });
+
+    update(ref(db),{
+      ['now_data/' + name]:{
+        money:0
+      }
+    });
+    
+    alert("一位賭鬼已加入");
+    document.getElementById("player").value=null;
+  }
+
+  function addCount(){
     const dbRef = ref(getDatabase());
     get(child(dbRef, 'now_data')).then((snapshot) => {
       if (snapshot.exists()) {
@@ -92,23 +107,10 @@
         });   
       } 
     });
-
-    set(ref(db, 'now_data/' + name), {
-        money: 0,
-    });
-
-    update(ref(db),{
-      ['now_data/' + name]:{
-        money:0
-      }
-    });
-    
-    alert("一位賭鬼已加入");
-
-    
   }
 
   document.getElementById("submit").onclick=writePlayer;
+  document.getElementById("submit").onclick=addCount;
 
 
 

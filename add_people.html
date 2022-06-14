@@ -72,14 +72,13 @@
   const analytics = getAnalytics(app);
   // Initialize Cloud Firestore and get a reference to the service
 
-  import { getDatabase, ref, child, set, update, get } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js"; 
+  import { getDatabase, ref, child, set, update, onValue } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js"; 
 
-  const dbRef = ref(getDatabase());
-  get(child(dbRef, 'now_data')).then((snapshot) => {
-    if (snapshot.exists()) {
-      var count = snapshot.val().count;
-      console.log(count)
-    } 
+  const db = getDatabase();
+  const starCountRef = ref(db, 'now_data');
+  onValue(starCountRef, (snapshot) => {
+    const data = snapshot.val().count;
+    updateStarCount(postElement, data);
   });
 
   var num=count;

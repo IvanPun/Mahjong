@@ -13,3 +13,8 @@ function add_people(){
         </div>`
   document.getElementById("add-people").innerHTML += s;
 }
+
+function addcount(num){
+  num+=1;
+  return num;
+}

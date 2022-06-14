@@ -87,7 +87,7 @@
     name = document.getElementById("player").value;
     const db = getDatabase();
 
-    console.log(num);
+    addcount(num);
 
     set(ref(db, 'now_data/' + name), {
         money: 0,

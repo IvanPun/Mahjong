@@ -13,3 +13,9 @@ function add_people(){
         </div>`
   document.getElementById("add-people").innerHTML += s;
 }
+
+function outputdata(count){
+    var num = count;
+  }
+
+  console.log(num);

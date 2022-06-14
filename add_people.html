@@ -102,11 +102,12 @@
         var num = snapshot.val().count + 1;
         console.log(num);
 
-        update(ref(db),{
-          ['now_data']:{
-            count: num
-          }
-        });   
+        const updates = {};
+        updates['now_data'] = num;
+
+        return update(ref(db), updates);
+
+   
       } 
     });
   }

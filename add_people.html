@@ -79,9 +79,9 @@
   const dbRef = ref(getDatabase());
   get(child(dbRef, 'now_data')).then((snapshot) => {
     if (snapshot.exists()) {
-      let count = snapshot.val().count;
+      var count = snapshot.val().count;
       console.log(count)
-      return count;
+
     } 
   });
 

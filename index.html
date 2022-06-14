@@ -75,7 +75,7 @@
   const dbRef = ref(getDatabase());
   get(child(dbRef, 'now_data')).then((snapshot) => {
     if (snapshot.exists()) {
-      var number = snapshot.val()[0].money;
+      var number = snapshot.val().players[0].money;
       console.log(number);
 
     } else {

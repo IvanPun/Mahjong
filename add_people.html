@@ -74,12 +74,12 @@
 
   import { getDatabase, ref, child, set, update, get } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
 
-  
+  var count; 
 
   const dbRef = ref(getDatabase());
   get(child(dbRef, 'now_data')).then((snapshot) => {
     if (snapshot.exists()) {
-      count = snapshot.val().count;
+      var count = snapshot.val().count;
       console.log(count)
 
     } 

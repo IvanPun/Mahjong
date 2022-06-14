@@ -84,6 +84,7 @@
       if (snapshot.exists()) {
         var num = snapshot.val().count + 1;
         console.log(num);
+
         set(ref(db, 'now_data/' + name), {
             money: 0,
         });
@@ -91,7 +92,10 @@
         update(ref(db),{
           ['now_data/' + name]:{
             money:0
-          },
+          }
+        });
+
+        update(ref(db),{
           ['now_data']:{
             count: num
           }

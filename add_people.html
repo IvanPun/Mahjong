@@ -79,7 +79,7 @@
   const dbRef = ref(getDatabase());
   get(child(dbRef, 'now_data')).then((snapshot) => {
     if (snapshot.exists()) {
-      let num = snapshot.val().count;
+      var num = snapshot.val().count;
     } 
   });
 
@@ -87,7 +87,7 @@
     name = document.getElementById("player").value;
     const db = getDatabase();
 
-    num = num++;
+    num += 1;
 
     set(ref(db, 'now_data/' + name), {
         money: 0,

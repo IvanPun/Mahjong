@@ -79,12 +79,12 @@
     var name = document.getElementById("player").value;
     const db = getDatabase();
 
-    set(ref(db, 'now_data/' + name), {
+    set(ref(db, 'now_data/' + 'players/' + name), {
         money: 0,
     });
 
     update(ref(db),{
-      ['now_data/' + name]:{
+      ['now_data/' + 'players/' + name]:{
         money:0
       }
     });

@@ -14,10 +14,3 @@ function add_people(){
   document.getElementById("add-people").innerHTML += s;
 }
 
-var num;
-
-function outputdata(count){
-    num = count;
-  }
-
-console.log(num);

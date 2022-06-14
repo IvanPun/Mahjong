@@ -74,7 +74,7 @@
 
   import { getDatabase, ref, child, set, update, get } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
 
-  let num = 0;
+  const num = 0;
 
   const dbRef = ref(getDatabase());
   get(child(dbRef, 'now_data')).then((snapshot) => {
@@ -87,7 +87,7 @@
     name = document.getElementById("player").value;
     const db = getDatabase();
 
-    num = num + 1;
+    let num = num + 1;
 
     set(ref(db, 'now_data/' + name), {
         money: 0,

@@ -85,26 +85,26 @@
         var num = snapshot.val().count + 1;
         console.log(num);
 
-        set(ref(db, 'now_data/' + name), {
-            money: 0,
-        });
-
-        update(ref(db),{
-          ['now_data/' + name]:{
-            money:0
-          }
-        });
-
         update(ref(db),{
           ['now_data']:{
             count: num
           }
-        });
-        alert("一位賭鬼已加入");
-        document.getElementById("player").value=null;
+        });   
       } 
     });
+
+    set(ref(db, 'now_data/' + name), {
+        money: 0,
+    });
+
+    update(ref(db),{
+      ['now_data/' + name]:{
+        money:0
+      }
+    });
     
+    alert("一位賭鬼已加入");
+    document.getElementById("player").value=null;
 
     
   }

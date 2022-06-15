@@ -73,10 +73,11 @@
   import { getDatabase, ref, child, get, set } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
 
   const dbRef = ref(getDatabase());
-  get(child(dbRef, 'now_data')).then(snapshot => snapshot.json()).then(json => {
+  get(child(dbRef, 'now_data')).then((snapshot) => {
     if (snapshot.exists()) {
-      var number = json;
+      var number = snapshot.val().players;
       console.log(number);
+      document.getElementById("output").innerHTML=number;
 
     } else {
       console.log("No data available");

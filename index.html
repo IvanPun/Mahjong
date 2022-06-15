@@ -75,21 +75,14 @@
   const dbRef = ref(getDatabase());
   get(child(dbRef, 'now_data')).then((snapshot) => {
     if (snapshot.exists()) {
-      const number = snapshot.val().players;
+      const players = snapshot.val().players;
 
-      Object.keys(number).forEach(key => {
+      Object.keys(players).forEach(key => {
+        s=`<tr><th>${key}</th><th>${players[key].money}</th>`;
+        document.getElementById("output").innerHTML=s;
         console.log(key);
-        console.log(number[key].money);
+        console.log(players[key].money);
       });
-
-      function pios(pio) {
-        var div = document.createElement('div');
-        div.setAttribute('id', pio.name);
-        div.innerHTML = pio.name.money;
-        document.body.appendChild(div);
-      }
-
-      console.log(number);
 
     } else {
       console.log("No data available");

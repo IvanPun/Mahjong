@@ -15,9 +15,9 @@ function add_people(){
 }
 
 function go_change_data(){
-  document.location.herf="change_data.html"
+  document.location.href="change_data.html"
 }
 
 function go_finish() {
-  docution.location.href="finish.html"
+  document.location.href="finish.html"
 }

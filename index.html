@@ -75,7 +75,7 @@
   const dbRef = ref(getDatabase());
   get(child(dbRef, 'now_data')).then((snapshot) => {
     if (snapshot.exists()) {
-      const number = snapshot.val();
+      const number = snapshot.val().players;
 
       Object.keys(number).forEach(key => {
         console.log(key);

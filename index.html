@@ -79,9 +79,7 @@
 
       Object.keys(players).forEach(key => {
         let s=`<tr><th>${key}</th><th>${players[key].money}</th>`;
-        document.getElementById("output").innerHTML=s;
-        console.log(key);
-        console.log(players[key].money);
+        document.getElementById("output").innerHTML+=s;
       });
 
     } else {

@@ -75,10 +75,11 @@
   const dbRef = ref(getDatabase());
   get(child(dbRef, 'now_data')).then((snapshot) => {
     if (snapshot.exists()) {
-      var number = snapshot.val();
+      const number = snapshot.val();
 
-      number.forEach(function(pio) {
-        pios(pio);
+      Object.keys(number).forEach(key => {
+        console.log(key);
+        console.log(number[key]);
       });
 
       function pios(pio) {

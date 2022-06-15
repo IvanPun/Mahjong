@@ -13,6 +13,6 @@
 	color: red;
 }
 
-#nav-home-tab:active ,#nav-profile-tab:active{
+#nav-home-tab.active ,#nav-profile-tab.active{
 	color: black;
 }

@@ -84,7 +84,7 @@
       const players = snapshot.val().players;
 
       Object.keys(players).forEach(key => {
-        let s=`<option value="${key}">${key}</option>`;
+        let s=`<option>${key}</option>`;
         document.getElementById("output1").innerHTML+=s;
       });
 
@@ -96,7 +96,7 @@
   });
 
   function write_data1() {
-    value = document.getElementById("output1").value;
+    const value = document.getElementById("output1").value;
     console.log(value);
   }
 

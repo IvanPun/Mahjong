@@ -9,10 +9,10 @@
 	margin-top: 2.5%;
 }
 
-#nav-home-tab{
+#nav-home-tab, #nav-profile-tab{
 	color: red;
 }
 
-#nav-profile-tab{
-	color: red;
+#nav-home-tab:active ,#nav-profile-tab:active{
+	color: black;
 }

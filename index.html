@@ -78,7 +78,7 @@
       const players = snapshot.val().players;
 
       Object.keys(players).forEach(key => {
-        s=`<tr><th>${key}</th><th>${players[key].money}</th>`;
+        let s=`<tr><th>${key}</th><th>${players[key].money}</th>`;
         document.getElementById("output").innerHTML=s;
         console.log(key);
         console.log(players[key].money);

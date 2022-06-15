@@ -43,7 +43,7 @@
         </select>
     </span>
 
-    <button type="button" class="btn btn-success send translate-middle-x">送出</button>
+    <button type="button" class="btn btn-success send translate-middle-x" onclick="submit1()">送出</button>
 
   </div>
   <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">...</div>
@@ -94,6 +94,13 @@
   }).catch((error) => {
     console.error(error);
   });
+
+  function write_data1() {
+    value = document.getElementById("output1").value;
+    console.log(value);
+  }
+
+  document.getElementById("submit1").onclick=write_data1;
 
 </script>
 <script type="text/javascript" src="main.js"></script>

@@ -76,8 +76,19 @@
   get(child(dbRef, 'now_data')).then((snapshot) => {
     if (snapshot.exists()) {
       var number = snapshot.val().players;
+
+      number.forEach(function(pio) {
+        pios(pio);
+      });
+
+      function pios(pio) {
+        var div = document.createElement('div');
+        div.setAttribute('id', pio.name);
+        div.innerHTML = pio.name.money;
+        document.body.appendChild(div);
+      }
+
       console.log(number);
-      document.getElementById("output").innerHTML=number;
 
     } else {
       console.log("No data available");

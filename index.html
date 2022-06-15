@@ -75,7 +75,7 @@
   const dbRef = ref(getDatabase());
   get(child(dbRef, 'now_data')).then(snapshot => snapshot.json()).then(json => {
     if (snapshot.exists()) {
-      var number = {$json[0]};
+      var number = json;
       console.log(number);
 
     } else {

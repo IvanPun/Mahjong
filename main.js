@@ -14,3 +14,10 @@ function add_people(){
   document.getElementById("add-people").innerHTML += s;
 }
 
+function go_change_data(){
+  document.location.herf="change_data"
+}
+
+function go_finish() {
+  docution.location.href="finish.html"
+}

@@ -39,15 +39,11 @@
   <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
 
     <span class="custom-dropdown big">
-        <select>    
+        <select id="output1">    
             <option>Sherlock Holmes</option>
-            <option>The Great Gatsby</option>  
-            <option>V for Vendetta</option>
-            <option>The Wolf of Wallstreet</option>
-            <option>Quantum of Solace</option>
         </select>
     </span>
-    
+
   </div>
   <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">...</div>
 </div>
@@ -81,6 +77,22 @@
 
   import { getDatabase, ref, child, get, set } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
 
+  const dbRef = ref(getDatabase());
+  get(child(dbRef, 'now_data')).then((snapshot) => {
+    if (snapshot.exists()) {
+      const players = snapshot.val().players;
+
+      Object.keys(players).forEach(key => {
+        let s=`<option>${key}</option>`;
+        document.getElementById("output").innerHTML+=s;
+      });
+
+    } else {
+      console.log("No data available");
+    }
+  }).catch((error) => {
+    console.error(error);
+  });
 
 </script>
 <script type="text/javascript" src="main.js"></script>

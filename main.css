@@ -23,6 +23,7 @@
   position: relative;
   display: inline-block;
   vertical-align: middle;
+  margin: 10px; /* demo only */
 }
 
 .custom-dropdown select {

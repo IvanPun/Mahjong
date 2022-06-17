@@ -73,3 +73,9 @@
 .tabsstyle{
 	margin-left: 50%;
 }
+
+#basic-addon2{
+  background-color: red;
+  color: white;
+  width: 30%;
+}

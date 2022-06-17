@@ -110,10 +110,17 @@
   });
 
   function write_data1() {
-    const value = document.getElementById("output1").value;
-    const change_number = document.getElementById("change_number").value
+    const name1 = document.getElementById("output1").value;
+    const name2 = document.getElementById("output2").value;
+    let change_number = document.getElementById("change_number").value
+    if (isNum(change_number)){
+      continue
+    }
+    else{
+      alert("輸入番數並不是數字")
+    }
     console.log(change_number);
-  }
+
 
   document.getElementById("submit1").onclick=write_data1;
 

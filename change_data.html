@@ -52,7 +52,7 @@
       </span>
 
       <div class="input-group mb-3 translate-middle-x tabsstyle" style="width:30%;">
-        <input type="text" class="form-control" placeholder="番數"  aria-describedby="basic-addon2">
+        <input type="text" class="form-control" placeholder="番數"  aria-describedby="basic-addon2" id="change_number">
         <span class="input-group-text" id="basic-addon2">番</span>
       </div>
 
@@ -111,7 +111,8 @@
 
   function write_data1() {
     const value = document.getElementById("output1").value;
-    console.log(value);
+    const change_number = document.getElementById("change_number").value
+    console.log(change_number);
   }
 
   document.getElementById("submit1").onclick=write_data1;

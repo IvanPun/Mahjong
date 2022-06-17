@@ -113,11 +113,9 @@
     const name1 = document.getElementById("output1").value;
     const name2 = document.getElementById("output2").value;
     let change_number = document.getElementById("change_number").value
-    if (isNum(change_number)){
-      continue;
-    }
-    else{
+    if (isNum(change_number)==false){
       alert("輸入番數並不是數字")
+      break whrite_data1();
     }
     console.log(change_number);
 

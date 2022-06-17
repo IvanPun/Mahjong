@@ -117,6 +117,23 @@
 
     if (!isNaN(change_number)){
       console.log(change_number);
+      const db = getDatabase();
+      const dbRef = ref(getDatabase());
+      let money1;
+      let money2;
+      get(child(dbRef, 'now_data/' + 'players/' + name1)).then((snapshot) => {
+        if (snapshot.exists()) {
+          money1 = snapshot.val().money;
+        } else {
+          console.log("No data available");
+        }
+      }).catch((error) => {
+        console.error(error);
+      });
+
+      console.log(money1);
+
+
     }
     else{
       alert("輸入番數並不是數字");

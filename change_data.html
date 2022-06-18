@@ -113,24 +113,23 @@
     const name1 = document.getElementById("output1").value;
     const name2 = document.getElementById("output2").value;
     let change_number = document.getElementById("change_number").value;
+    let money1;
     if (!isNaN(change_number)){
       console.log(change_number);
       const db = getDatabase();
       const dbRef = ref(getDatabase());
-      
+      let money;
+
       get(child(dbRef, 'now_data/' + 'players/' + name1)).then((snapshot) => {
         if (snapshot.exists()) {
-          let money1 = snapshot.val().money - change_number;
-
-          console.log(money1);
-
+          money1 = snapshot.val().money;
         } else {
           console.log("No data available");
         }
       }).catch((error) => {
         console.error(error);
       });
-
+      console.log(money1);
 
 
 

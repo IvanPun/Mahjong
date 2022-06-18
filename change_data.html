@@ -113,8 +113,6 @@
     const name1 = document.getElementById("output1").value;
     const name2 = document.getElementById("output2").value;
     let change_number = document.getElementById("change_number").value;
-
-    let money1;
     if (!isNaN(change_number)){
       console.log(change_number);
       const db = getDatabase();
@@ -130,7 +128,7 @@
         console.error(error);
       });
 
-      console.log(money1);
+      console.log(snapshot.val());
 
 
     }

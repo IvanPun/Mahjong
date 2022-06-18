@@ -114,13 +114,12 @@
     const name2 = document.getElementById("output2").value;
     let change_number = document.getElementById("change_number").value;
 
-
+    let money1;
     if (!isNaN(change_number)){
       console.log(change_number);
       const db = getDatabase();
       const dbRef = ref(getDatabase());
-      let money1;
-      let money2;
+      
       get(child(dbRef, 'now_data/' + 'players/' + name1)).then((snapshot) => {
         if (snapshot.exists()) {
           money1 = snapshot.val().money;

@@ -89,7 +89,7 @@
   const analytics = getAnalytics(app);
   // Initialize Cloud Firestore and get a reference to the service
 
-  import { getDatabase, ref, child, get, set, update } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
+  import { getDatabase, ref, child, get, set, updatel } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
 
   const dbRef = ref(getDatabase());
   get(child(dbRef, 'now_data')).then((snapshot) => {
@@ -112,7 +112,7 @@
   function write_data1() {
     const name1 = document.getElementById("output1").value;
     const name2 = document.getElementById("output2").value;
-    let change_number = document.getElementById("change_number").value;
+    var change_number = document.getElementById("change_number").value;
     let money1;
     if (!isNaN(change_number)){
       const db = getDatabase();
@@ -131,7 +131,7 @@
 
       get(child(dbRef, 'now_data/' + 'players/' + name2)).then((snapshot) => {
         if (snapshot.exists()) {
-          let money2 = snapshot.val().money + change_number;
+          var money2 = snapshot.val().money + change_number;
           update(ref(db),{
             ['now_data/' + 'players/' + name2]:{
               money:money2

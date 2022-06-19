@@ -21,3 +21,7 @@ function go_change_data(){
 function go_finish() {
   document.location.href="finish.html"
 }
+
+function go_index() {
+  document.location.href="index.html";
+}

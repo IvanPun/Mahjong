@@ -123,7 +123,7 @@
           let money1 = snapshot.val().money - change_number;
           update(ref(db),{
             ['now_data/' + 'players/' + name1]:{
-              money:money1;
+              money:money1
             }
           });
         }
@@ -134,7 +134,7 @@
           let money2 = snapshot.val().money + change_number;
           update(ref(db),{
             ['now_data/' + 'players/' + name2]:{
-              money:money2;
+              money:money2
             }
           });
         }

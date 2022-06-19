@@ -74,6 +74,9 @@
         <input type="text" class="form-control" placeholder="番數"  aria-describedby="  basic-addon2" id="change_number2">
         <span class="input-group-text" id="basic-addon2">番</span>
       </div>
+      <br>
+      <input type="checkbox" name="coffee" value="cream">With cream<br>
+      <input type="checkbox" name="coffee" value="sugar">With sugar<br>
 
       <button type="button" class="btn btn-success send translate-middle-x" id="submit2">送出</button>
     </form>
@@ -174,6 +177,17 @@
   function write_data2() {
     const name3 = document.getElementById("output3").value;
     let change_number = document.getElementById("change_number2").value;
+    var coffee = document.forms[0];
+    console.log(coffee);
+    var txt = "";
+    var i;
+    for (i = 0; i < coffee.length; i++) {
+      if (coffee[i].checked) {
+        txt = txt + coffee[i].value + " ";
+      }
+    }
+      console.log(txt);
+    }
     console.log(change_number);
     if (!isNaN(change_number)){
 

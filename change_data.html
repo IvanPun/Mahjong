@@ -89,7 +89,7 @@
   const analytics = getAnalytics(app);
   // Initialize Cloud Firestore and get a reference to the service
 
-  import { getDatabase, ref, child, get, set, updatel } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
+  import { getDatabase, ref, child, get, set, update } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
 
   const dbRef = ref(getDatabase());
   get(child(dbRef, 'now_data')).then((snapshot) => {

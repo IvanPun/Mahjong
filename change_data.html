@@ -115,21 +115,30 @@
     let change_number = document.getElementById("change_number").value;
     let money1;
     if (!isNaN(change_number)){
-      console.log(change_number);
       const db = getDatabase();
       const dbRef = ref(getDatabase());
-      let money;
 
       get(child(dbRef, 'now_data/' + 'players/' + name1)).then((snapshot) => {
         if (snapshot.exists()) {
-          money1 = snapshot.val().money;
-        } else {
-          console.log("No data available");
+          let money1 = snapshot.val().money - change_number;
+          update(ref(db),{
+            ['now_data/' + 'players/' + name1]:{
+              money:money1;
+            }
+          });
         }
-      }).catch((error) => {
-        console.error(error);
       });
-      console.log(money1);
+
+      get(child(dbRef, 'now_data/' + 'players/' + name2)).then((snapshot) => {
+        if (snapshot.exists()) {
+          let money2 = snapshot.val().money + change_number;
+          update(ref(db),{
+            ['now_data/' + 'players/' + name2]:{
+              money:money2;
+            }
+          });
+        }
+      });
 
 
 

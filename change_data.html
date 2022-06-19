@@ -62,17 +62,21 @@
 
   <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
 
-    <span class="custom-dropdown translate-middle-x tabsstyle">
-        <select id="output3">
-        </select>
-    </span>
+    <form>
+      <span class="custom-dropdown translate-middle-x tabsstyle">
+          <select id="output3">
+          </select>
+      </span>
+  
+      <center><p class="" style="font-size: 36px;">自摸</p></center>
+  
+      <div class="input-group mb-3 translate-middle-x tabsstyle" style="width:30%;">
+        <input type="text" class="form-control" placeholder="番數"  aria-describedby="  basic-addon2" id="change_number">
+        <span class="input-group-text" id="basic-addon2">番</span>
+      </div>
 
-    <center><p class="" style="font-size: 36px;">自摸</p></center>
-
-    <div class="input-group mb-3 translate-middle-x tabsstyle" style="width:30%;">
-      <input type="text" class="form-control" placeholder="番數"  aria-describedby="basic-addon2" id="change_number">
-      <span class="input-group-text" id="basic-addon2">番</span>
-    </div>
+      <button type="button" class="btn btn-success send translate-middle-x" id="submit2">送出</button>
+    </form>
 
   </div>
 
@@ -166,10 +170,24 @@
       alert("輸入番數並不是數字");
     }
   };
+
+  function write_data2() {
+    const name3 = document.getElementById("output3").value;
+    let change_number = document.getElementById("change_number").value;
+    console.log(change_number);
+    if (!isNaN(change_number)){
+
+
+    }
+    else{
+      alert("輸入番數並不是數字");
+    }
+  };
+
     
-
-
   document.getElementById("submit1").onclick=write_data1;
+  document.getElementById("submit2").onclick=write_data2;
+
 
 </script>
 <script type="text/javascript" src="main.js"></script>

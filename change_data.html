@@ -74,9 +74,9 @@
         <input type="text" class="form-control" placeholder="番數"  aria-describedby="  basic-addon2" id="change_number2">
         <span class="input-group-text" id="basic-addon2">番</span>
       </div>
-      <br>
-      <input type="checkbox" name="coffee" value="cream">With cream<br>
-      <input type="checkbox" name="coffee" value="sugar">With sugar<br>
+      
+      <div id=output4>
+      </div>
 
       <button type="button" class="btn btn-success send translate-middle-x" id="submit2">送出</button>
     </form>
@@ -121,9 +121,11 @@
 
       Object.keys(players).forEach(key => {
         let s=`<option>${key}</option>`;
+        let t=`<input type="checkbox" name="people" value="${key}"><span>${key}</span>`;
         document.getElementById("output1").innerHTML+=s;
         document.getElementById("output2").innerHTML+=s;
         document.getElementById("output3").innerHTML+=s;
+        document.getElementById("output4").innerHTML+=t;
       });
 
     } else {
@@ -177,19 +179,41 @@
   function write_data2() {
     const name3 = document.getElementById("output3").value;
     let change_number = document.getElementById("change_number2").value;
-    var coffee = document.forms[0];
-    console.log(coffee);
-    var txt = "";
-    var i;
-    for (i = 0; i < coffee.length; i++) {
-      if (coffee[i].checked) {
-        txt = txt + coffee[i].value + " ";
-      }
-    }
-    console.log(txt);
-    console.log(change_number);
+    
     if (!isNaN(change_number)){
+      var people = document.forms[0];
+      var i;
+      for (i = 0; i < people.length; i++) {
+        if (people[i].checked) {
+          var player = people[i].value;
+          if (player!=name3) {
+            get(child(dbRef, 'now_data/' + 'players/' + player)).then((snapshot) => {
+              if (snapshot.exists()) {
+                let money1 = snapshot.val().money - change_number;
+                update(ref(db),{
+                  ['now_data/' + 'players/' + player]:{
+                    money:money1
+                  }
+                });
+              }
+            });
 
+          }
+        }
+      }
+
+      get(child(dbRef, 'now_data/' + 'players/' + name3)).then((snapshot) => {
+        if (snapshot.exists()) {
+          let money2 = snapshot.val().money + change_number *1;
+          update(ref(db),{
+            ['now_data/' + 'players/' + name3]:{
+              money:money2
+            }
+          });
+        }
+      });
+      alert("完成更改");
+      document.location.href="index.html";
 
     }
     else{

@@ -187,6 +187,7 @@
         if (people[i].checked) {
           var player = people[i].value;
           if (player!=name3) {
+            console.log(player);
             get(child(dbRef, 'now_data/' + 'players/' + player)).then((snapshot) => {
               if (snapshot.exists()) {
                 let money1 = snapshot.val().money - change_number;

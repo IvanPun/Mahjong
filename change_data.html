@@ -179,7 +179,7 @@
   function write_data2() {
     const name3 = document.getElementById("output3").value;
     let change_number = document.getElementById("change_number2").value;
-    
+    const db = getDatabase();
     if (!isNaN(change_number)){
       var people = document.forms[0];
       var i;

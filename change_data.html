@@ -176,34 +176,43 @@
     }
   };
 
-  function write_data2() {
+//自摸 
+async function updatePlayerData(player, change_number) {
+  return new Promise (function (resolve, reject) {
+    const db = getDatabase();
+    get(child(dbRef, 'now_data/' + 'players/' + player)).then((snapshot) => {
+      if (snapshot.exists()) {
+        let money1 = snapshot.val().money - change_number;
+        update(ref(db), {
+          ['now_data/' + 'players/' + player]: {
+            money: money1
+          }
+        }).then(() => {
+          resolve();
+        }).catch((error) => {
+          reject(error);
+        });
+      }
+      else {
+        reject();
+      }
+    });
+    
+  })
+}
+
+async function write_data2() {
     const name3 = document.getElementById("output3").value;
     let change_number = document.getElementById("change_number2").value;
     const db = getDatabase();
     if (!isNaN(change_number)){
-      var people = document.forms[0];
-      var i;
+      const people = document.forms[0];
       let money1;
-      for (i = 0; i < people.length; i++) {
+      for (let i = 0; i < people.length; i++) {
         if (people[i].checked) {
           var player = people[i].value;
           if (player!=name3) {
-            console.log(player);
-            get(child(dbRef, 'now_data/' + 'players/' + player)).then((snapshot) => {
-              if (snapshot.exists()) {
-                money1 = snapshot.val().money - change_number;
-              }
-              else{
-                console.log("error");
-              }
-              
-              update(ref(db),{
-                  ['now_data/' + 'players/' + player]:{
-                    money:money1
-                  }
-                });
-            });
-
+            await updatePlayerData(player, change_number).then((res) => {})
           }
         }
       }
@@ -234,3 +243,13 @@
 </script>
 <script type="text/javascript" src="main.js"></script>
 </html>
+
+<!-- 
+To T______:
+一個度過是折磨 別要拆穿我                  
+剩我一個 我更好過
+誰會想起我
+街裡十對在愛河
+流連過後 共被單拔河
+留低陪我 我這夜忙著過
+-->

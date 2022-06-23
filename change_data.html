@@ -76,7 +76,7 @@
       </div>
       
       <div class="container">
-        <div class="row">
+        <div class="row" id="output4">
           <div class="col-6">
             Column
           </div>
@@ -88,8 +88,7 @@
           </div>
         </div>
       </div>
-      <div id=output4>
-      </div>
+
 
       <button type="button" class="btn btn-success send translate-middle-x" id="submit2">送出</button>
     </form>
@@ -134,7 +133,7 @@
 
       Object.keys(players).forEach(key => {
         let s=`<option>${key}</option>`;
-        let t=`<input type="checkbox" name="people" value="${key}"><span>${key}</span><br>`;
+        let t=`<div class="col-6"><input type="checkbox" name="people" value="${key}"><span>${key}</span></div>`;
         document.getElementById("output1").innerHTML+=s;
         document.getElementById("output2").innerHTML+=s;
         document.getElementById("output3").innerHTML+=s;

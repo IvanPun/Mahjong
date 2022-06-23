@@ -125,7 +125,7 @@
 
       Object.keys(players).forEach(key => {
         let s=`<option>${key}</option>`;
-        let t=`<div class="col-6"><input type="checkbox" name="people" value="${key}"><span>${key}</span></div>`;
+        let t=`<div class="col-6"><input type="checkbox" name="people" value="${key}"><span class="playerlist">${key}</span></div>`;
         document.getElementById("output1").innerHTML+=s;
         document.getElementById("output2").innerHTML+=s;
         document.getElementById("output3").innerHTML+=s;

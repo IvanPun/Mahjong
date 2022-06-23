@@ -95,25 +95,10 @@
     
     alert("一位賭鬼已加入");
     document.getElementById("player").value=null;
-    addCount();
+
   }
 
-  function addCount(){
-    const db = getDatabase();
-    const dbRef = ref(getDatabase());
-    get(child(dbRef, 'now_data/' + 'count')).then((snapshot) => {
-      if (snapshot.exists()) {
-        var num = snapshot.val().number + 1;
-        console.log(num);
 
-        update(ref(db),{
-          ['now_data/' + 'count']:{
-            number: num
-          }
-        });   
-      } 
-    });
-  }
 
   document.getElementById("submit").onclick=writePlayer;
 

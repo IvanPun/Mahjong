@@ -35,20 +35,7 @@
   </div>
 </nav>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">名</th>
-      <th scope="col">+/-</th>
-    </tr>
-  </thead>
-  <tbody id="output">
 
-<button type="button" class="btn btn-info add-people" onclick="add_people()">新增賭鬼</button>
-
-  </tbody>
-</table>
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
@@ -79,27 +66,7 @@
 
   import { getDatabase, ref, child, get, set } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
 
-  function writeUserData(userId, name, email) {
-    const db = getDatabase();
-    set(ref(db, 'Ivan' + userId), {
-      username: name,
-      email: email,
-    });
-    console.log(db);
-  }
 
-  writeUserData('Pun', 'Ivan', 'whitetiger');
-
-  const dbRef = ref(getDatabase());
-  get(child(dbRef, 'IvanPun')).then((snapshot) => {
-    if (snapshot.exists()) {
-      console.log(snapshot.val().email);
-    } else {
-      console.log("No data available");
-    }
-  }).catch((error) => {
-    console.error(error);
-  });
 
 </script>
 <script type="text/javascript" src="main.js"></script>

@@ -18,10 +18,6 @@ function go_change_data(){
   document.location.href="change_data.html"
 }
 
-function go_finish() {
-  document.location.href="finish.html"
-}
-
 function go_index() {
   document.location.href="index.html";
 }

@@ -49,7 +49,7 @@
 
 <div class="position-relative" style="margin-left:2.5%;margin-right:2.5%;">
 <button type="button" class="btn btn-outline-warning position-absolute top-0 start-0" onclick="go_change_data()">出事</button>
-<button type="button" class="btn btn-success position-absolute top-0 start-50 translate-middle-x" onclick="go_finish()">提交</button>
+<button type="button" class="btn btn-success position-absolute top-0 start-50 translate-middle-x" id="submit_button">提交</button>
 <button type="button" class="btn btn-info position-absolute top-0 end-0" onclick="go_add_people()">新增賭鬼</button>
 </div>
 
@@ -59,6 +59,8 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-analytics.js";
+  import { getDatabase, ref, child, get, set } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
+  import { doc, setDoc } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-firestore.js";
 
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
@@ -77,10 +79,7 @@
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  // Initialize Cloud Firestore and get a reference to the service
-
-  import { getDatabase, ref, child, get, set } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
+  const analytics = getAnalytics(app); 
 
   const dbRef = ref(getDatabase());
   get(child(dbRef, 'now_data')).then((snapshot) => {
@@ -98,6 +97,14 @@
   }).catch((error) => {
     console.error(error);
   });
+
+  function submit_this_data() {
+    const cityRef = doc(db, 'cities', 'BJ');
+    setDoc(cityRef, { capital: true }, { merge: true });
+    alert(已上傳當時數據);
+  }
+
+  document.getElementById("submit_button").onclick=submit_this_data;
 
 </script>
 <script type="text/javascript" src="main.js"></script>

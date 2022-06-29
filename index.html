@@ -100,9 +100,28 @@
 
   function submit_this_data() {
 
+    get(child(dbRef, 'now_data')).then((snapshot) => {
+      if (snapshot.exists()) {
+        const players = snapshot.val().players;
+
+        Object.keys(players).forEach(key => {
+
+          let s=`<tr><th>${key}</th><th>${players[key].money}</th>`;
+          document.getElementById("output").innerHTML+=s;
+        });
+
+      } else {
+        console.log("No data available");
+      }
+    }).catch((error) => {
+      console.error(error);
+    });
+
     alert(已上傳當時數據);
   }
 
+  let now_time = new Date();
+  console.log(now_time);
   document.getElementById("submit_button").onclick=submit_this_data;
 
 </script>

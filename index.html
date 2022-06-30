@@ -120,10 +120,8 @@
     alert(已上傳當時數據);
   }
 
-  let now_time = new Date();
-  console.log(now_time);
-  let str="www.runoob.com!";
-  console.log(str.substring(-4));
+  let now_time = String(new Date());
+  console.log(now_time.substring(0,23));
   document.getElementById("submit_button").onclick=submit_this_data;
 
 </script>

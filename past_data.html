@@ -36,6 +36,7 @@
 </nav>
 
 <!-- output data -->
+<div id="output"></div>
 <div class="card">
   <div class="card-body">
     <h5 class="card-title">Card title</h5>
@@ -80,20 +81,31 @@
       const past_data = snapshot.val();
 
       Object.keys(past_data).forEach(key => {
+        let count = 1;
         if (key!='keep') {
+          let s = `<div class="card"><table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">名</th>
+                        <th scope="col">+/-</th>
+                      </tr>
+                    </thead>
+                    <tbody id="${count}">
+                  
+                    </tbody>
+                  </table></div>`
+          document.getElementById("output").innerHTML+=s;
           get(child(dbRef, 'past_data/' + key)).then((snapshot) => {
             if (snapshot.exists()) {
               const date = snapshot.val();
               Object.keys(date).forEach(key =>{
-                let name=key;
-                console.log(name);
+                let x=`<tr><th>${key}</th><th>${date[key].money}</th>`
+                document.getElementById(count).innerHTML+=x;
               });
 
             }
           });
         }
-
-        let s=`<tr><th>${key}</th><th>${past_data[key].name}</th>`;
         
       });
 

@@ -76,7 +76,7 @@
       Object.keys(past_data).forEach(key => {
         
         if (key!='keep') {
-          console.log(past_data.length);
+          
           let s = `<div class="card"><div class="card-header">
     ${key}
   </div><table class="table">
@@ -86,7 +86,7 @@
                         <th scope="col">+/-</th>
                       </tr>
                     </thead>
-                    <tbody id="card${count}">
+                    <tbody id="${count}">
                   
                     </tbody>
                   </table></div>`
@@ -102,7 +102,7 @@
             }
           });
         }
-        count ++;
+        
       });
 
     } else {

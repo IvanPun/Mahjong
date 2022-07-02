@@ -108,8 +108,27 @@
           //get time
           let now_time = String(new Date()).substring(0,24);
           let name = key;
+          let money = players[key].money;
           console.log(name);
           //let s=`<tr><th>${key}</th><th>${players[key].money}</th>`;
+          //upload data
+          await get(child(dbRef, 'past_data')).then((snapshot) => {
+            if (snapshot.exists()) {
+              update(ref(db), {
+                ['past_data/' + now_time + name]: {
+                  money: money;
+                }
+              }).then(() => {
+                
+              }).catch((error) => {
+                
+              });
+            }
+            else {
+              
+            }
+          });
+
         });
 
       } else {
@@ -119,7 +138,7 @@
       console.error(error);
     });
 
-    alert(已上傳當時數據);
+    alert("已上傳當時數據");
   }
 
   document.getElementById("submit_button").onclick=submit_data;

@@ -107,7 +107,7 @@
           Object.keys(players).forEach(key => {
             //get time
             let now_time = String(new Date()).substring(0,24);
-            let name = key;
+            let name = key; 
             let money = players[key].money;
             //upload data
             get(child(dbRef, 'past_data')).then((snapshot) => {

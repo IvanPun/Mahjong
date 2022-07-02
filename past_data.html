@@ -72,12 +72,12 @@
   get(child(dbRef, 'past_data')).then((snapshot) => {
     if (snapshot.exists()) {
       const past_data = snapshot.val();
-      let count = 1;
+      let number = 1;
       Object.keys(past_data).forEach(key => {
         
         if (key!='keep') {
           
-          console.log(count);
+          
           let s = `<div class="card"><div class="card-header">
     ${key}
   </div><table class="table">
@@ -87,22 +87,13 @@
                         <th scope="col">+/-</th>
                       </tr>
                     </thead>
-                    <tbody id="${count}">
+                    <tbody id="${number}">
                   
                     </tbody>
                   </table></div>`
           document.getElementById("output").innerHTML+=s;
-          get(child(dbRef, 'past_data/' + key)).then((snapshot) => {
-            if (snapshot.exists()) {
-              const date = snapshot.val();
-              Object.keys(date).forEach(key =>{
-                let x=`<tr><th>${key}</th><th>${date[key].money}</th>`
-                console.log(count);
-                document.getElementById(count).innerHTML+=x;
-              });
-              count +=1;
-            }
-          });
+          await viewdata(key, number).then((res) => {})
+          count += 1;
         }
         
       });
@@ -113,6 +104,29 @@
   }).catch((error) => {
     console.error(error);
   });
+
+  async function viewdata(date, number) {
+  return new Promise (function (resolve, reject) {
+    
+    get(child(dbRef, 'past_data/' + date)).then((snapshot) => {
+      if (snapshot.exists()) {
+        const players = snapshot.val();
+        Object.keys(players).forEach(key =>{
+          let x=`<tr><th>${key}</th><th>${players[key].money}</th>`
+          document.getElementById(number).innerHTML+=x;
+        }).then(() => {
+          resolve();
+        }).catch((error) => {
+          reject(error);
+        });
+      }
+      else {
+        reject();
+      }
+    });
+    
+  })
+}
 
 
 

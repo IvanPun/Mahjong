@@ -112,9 +112,9 @@
           console.log(name);
           //let s=`<tr><th>${key}</th><th>${players[key].money}</th>`;
           //upload data
-          await get(child(dbRef, 'past_data')).then((snapshot) => {
+          get(child(dbRef, 'past_data')).then((snapshot) => {
             if (snapshot.exists()) {
-              update(ref(db), {
+              await update(ref(db), {
                 ['past_data/' + now_time + name]: {
                   money: money;
                 }

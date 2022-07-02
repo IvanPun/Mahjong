@@ -98,16 +98,18 @@
     console.error(error);
   });
 
-  function submit_this_data() {
+  function submit_data() {
 
     get(child(dbRef, 'now_data')).then((snapshot) => {
       if (snapshot.exists()) {
         const players = snapshot.val().players;
 
         Object.keys(players).forEach(key => {
-
-          let s=`<tr><th>${key}</th><th>${players[key].money}</th>`;
-          document.getElementById("output").innerHTML+=s;
+          //get time
+          let now_time = String(new Date()).substring(0,24);
+          let name = key;
+          console.log(name);
+          //let s=`<tr><th>${key}</th><th>${players[key].money}</th>`;
         });
 
       } else {
@@ -120,9 +122,9 @@
     alert(已上傳當時數據);
   }
 
-  let now_time = String(new Date());
-  console.log(now_time.substring(0,24));
-  document.getElementById("submit_button").onclick=submit_this_data;
+  document.getElementById("submit_button").onclick=submit_data;
+
+  
 
 </script>
 <script type="text/javascript" src="main.js"></script>

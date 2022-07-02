@@ -76,7 +76,7 @@
       Object.keys(past_data).forEach(key => {
         
         if (key!='keep') {
-          console.log(count);
+          console.log(past_data.length);
           let s = `<div class="card"><div class="card-header">
     ${key}
   </div><table class="table">
@@ -96,7 +96,7 @@
               const date = snapshot.val();
               Object.keys(date).forEach(key =>{
                 let x=`<tr><th>${key}</th><th>${date[key].money}</th>`
-                document.getElementById('card'+count).innerHTML+=x;
+                document.getElementById(count).innerHTML+=x;
               });
 
             }

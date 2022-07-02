@@ -68,42 +68,44 @@
   const db = getDatabase();
   // Initialize Cloud Firestore and get a reference to the service
 
-  const dbRef = ref(getDatabase());
-  get(child(dbRef, 'past_data')).then((snapshot) => {
-    if (snapshot.exists()) {
-      const past_data = snapshot.val();
-      let number = 1;
-      Object.keys(past_data).forEach(key => {
-        
-        if (key!='keep') {
+  await function load_page(){
+    const dbRef = ref(getDatabase());
+    get(child(dbRef, 'past_data')).then((snapshot) => {
+      if (snapshot.exists()) {
+        const past_data = snapshot.val();
+        let number = 1;
+        Object.keys(past_data).forEach(key => {
           
+          if (key!='keep') {
+            
+            
+            let s = `<div class="card"><div class="card-header">
+      ${key}
+    </div><table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">名</th>
+                          <th scope="col">+/-</th>
+                        </tr>
+                      </thead>
+                      <tbody id="${number}">
+                    
+                      </tbody>
+                    </table></div>`
+            document.getElementById("output").innerHTML+=s;
+            await viewdata(key, number).then((res) => {})
+            count += 1;
+          }
           
-          let s = `<div class="card"><div class="card-header">
-    ${key}
-  </div><table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">名</th>
-                        <th scope="col">+/-</th>
-                      </tr>
-                    </thead>
-                    <tbody id="${number}">
-                  
-                    </tbody>
-                  </table></div>`
-          document.getElementById("output").innerHTML+=s;
-          await viewdata(key, number).then((res) => {})
-          count += 1;
-        }
-        
-      });
-
-    } else {
-      console.log("No data available");
-    }
-  }).catch((error) => {
-    console.error(error);
-  });
+        });
+  
+      } else {
+        console.log("No data available");
+      }
+    }).catch((error) => {
+      console.error(error);
+    });
+  }
 
   async function viewdata(date, number) {
   return new Promise (function (resolve, reject) {
@@ -128,6 +130,7 @@
   })
 }
 
+  load_page();
 
 
 </script>

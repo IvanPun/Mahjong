@@ -80,7 +80,7 @@
       const past_data = snapshot.val();
 
       Object.keys(past_data).forEach(key => {
-        if (key!=keep) {
+        if (key!='keep') {
           get(child(dbRef, 'past_data/' + key)).then((snapshot) => {
             if (snapshot.exists()) {
               const date = snapshot.val();

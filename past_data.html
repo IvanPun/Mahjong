@@ -80,8 +80,8 @@
       const past_data = snapshot.val();
 
       Object.keys(past_data).forEach(date => {
-        let date = past_data[date];
-        console.log(date);
+        let this_date = past_data[date];
+        console.log(thsi_date);
 
         let s=`<tr><th>${date}</th><th>${past_data[date].name}</th>`;
         

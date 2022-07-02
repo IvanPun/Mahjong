@@ -123,6 +123,8 @@
             remove(ref(db, 'now_data/' + 'players/' + name));
   
           });
+          alert("已上傳當時數據");
+          document.getElementById("output").innerHTML =" ";
         }else{
           alert("暫時未有數據");
         }
@@ -133,8 +135,7 @@
       console.error(error);
     });
 
-    alert("已上傳當時數據");
-    document.getElementById("output").innerHTML =" ";
+    
   }
 
   document.getElementById("submit_button").onclick=submit_data;

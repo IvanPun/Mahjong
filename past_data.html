@@ -97,6 +97,7 @@
               const date = snapshot.val();
               Object.keys(date).forEach(key =>{
                 let x=`<tr><th>${key}</th><th>${date[key].money}</th>`
+                console.log(count);
                 document.getElementById(count).innerHTML+=x;
               });
 

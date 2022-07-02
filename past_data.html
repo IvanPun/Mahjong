@@ -72,11 +72,11 @@
   get(child(dbRef, 'past_data')).then((snapshot) => {
     if (snapshot.exists()) {
       const past_data = snapshot.val();
-      let count = 0;
+      let count = 1;
       Object.keys(past_data).forEach(key => {
         
         if (key!='keep') {
-          count += 1;
+          
           console.log(count);
           let s = `<div class="card"><div class="card-header">
     ${key}
@@ -92,7 +92,7 @@
                     </tbody>
                   </table></div>`
           document.getElementById("output").innerHTML+=s;
-          await get(child(dbRef, 'past_data/' + key)).then((snapshot) => {
+          get(child(dbRef, 'past_data/' + key)).then((snapshot) => {
             if (snapshot.exists()) {
               const date = snapshot.val();
               Object.keys(date).forEach(key =>{
@@ -100,7 +100,7 @@
                 console.log(count);
                 document.getElementById(count).innerHTML+=x;
               });
-
+              count +=1;
             }
           });
         }

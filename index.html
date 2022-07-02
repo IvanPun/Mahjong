@@ -114,7 +114,7 @@
           //upload data
           get(child(dbRef, 'past_data')).then((snapshot) => {
             if (snapshot.exists()) {
-              await update(ref(db), {
+              update(ref(db), {
                 ['past_data/' + now_time + name]: {
                   money: money;
                 }

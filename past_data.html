@@ -72,10 +72,11 @@
   get(child(dbRef, 'past_data')).then((snapshot) => {
     if (snapshot.exists()) {
       const past_data = snapshot.val();
-
+      let count = 1;
       Object.keys(past_data).forEach(key => {
-        let count = 1;
+        
         if (key!='keep') {
+          console.log(count);
           let s = `<div class="card"><div class="card-header">
     ${key}
   </div><table class="table">

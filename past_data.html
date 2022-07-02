@@ -83,7 +83,9 @@
       Object.keys(past_data).forEach(key => {
         let count = 1;
         if (key!='keep') {
-          let s = `<div class="card"><div class="card-body"><h5 class="card-title">${key}</h5><table class="table">
+          let s = `<div class="card"><div class="card-header">
+    ${key}
+  </div><table class="table">
                     <thead>
                       <tr>
                         <th scope="col">名</th>
@@ -93,7 +95,7 @@
                     <tbody id="${count}">
                   
                     </tbody>
-                  </table></div></div>`
+                  </table></div>`
           document.getElementById("output").innerHTML+=s;
           get(child(dbRef, 'past_data/' + key)).then((snapshot) => {
             if (snapshot.exists()) {

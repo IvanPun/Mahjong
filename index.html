@@ -115,8 +115,10 @@
           get(child(dbRef, 'past_data')).then((snapshot) => {
             if (snapshot.exists()) {
               update(ref(db), {
-                ['past_data/' + now_time/ + name]: {
-                  money: money
+                ['past_data/' + now_time]: {
+                  [name]:{
+                    money:money
+                  }
                 }
               }).then(() => {
                 

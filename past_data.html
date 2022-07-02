@@ -68,7 +68,7 @@
   const db = getDatabase();
   // Initialize Cloud Firestore and get a reference to the service
 
-  await function load_page(){
+  async function load_page(){
     const dbRef = ref(getDatabase());
     get(child(dbRef, 'past_data')).then((snapshot) => {
       if (snapshot.exists()) {

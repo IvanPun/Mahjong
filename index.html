@@ -103,27 +103,27 @@
     get(child(dbRef, 'now_data')).then((snapshot) => {
       if (snapshot.exists()) {
         const players = snapshot.val().players;
-
-        Object.keys(players).forEach(key => {
-          //get time
-          let now_time = String(new Date()).substring(0,24);
-          let name = key;
-          let money = players[key].money;
-          //upload data
-          get(child(dbRef, 'past_data')).then((snapshot) => {
-            if (snapshot.exists()) {
-              update(ref(db), {
-                ['past_data/' + now_time + '/' + name]: {
-                  money: money
-                }
-              });
-            }
+        if (players!=null) {
+          Object.keys(players).forEach(key => {
+            //get time
+            let now_time = String(new Date()).substring(0,24);
+            let name = key;
+            let money = players[key].money;
+            //upload data
+            get(child(dbRef, 'past_data')).then((snapshot) => {
+              if (snapshot.exists()) {
+                update(ref(db), {
+                  ['past_data/' + now_time + '/' + name]: {
+                    money: money
+                  }
+                });
+              }
+            });
+  
+            remove(ref(db, 'now_data/' + 'players/' + name));
+  
           });
-
-          remove(ref(db, 'now_data/' + 'players/' + name));
-
-        });
-
+        }
       } else {
         console.log("No data available");
       }

@@ -86,7 +86,7 @@
                         <th scope="col">+/-</th>
                       </tr>
                     </thead>
-                    <tbody id="${count}">
+                    <tbody id="card${count}">
                   
                     </tbody>
                   </table></div>`
@@ -96,7 +96,7 @@
               const date = snapshot.val();
               Object.keys(date).forEach(key =>{
                 let x=`<tr><th>${key}</th><th>${date[key].money}</th>`
-                document.getElementById(count).innerHTML+=x;
+                document.getElementById('card'+count).innerHTML+=x;
               });
 
             }

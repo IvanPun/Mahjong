@@ -93,8 +93,8 @@
                       </tbody>
                     </table></div>`
             document.getElementById("output").innerHTML+=s;
-            await viewdata(key, number).then((res) => {})
-            count += 1;
+            viewdata(key, number)
+            number += 1;
           }
           
         });
@@ -108,26 +108,16 @@
   }
 
   async function viewdata(date, number) {
-  return new Promise (function (resolve, reject) {
-    
+    const dbRef = ref(getDatabase());
     get(child(dbRef, 'past_data/' + date)).then((snapshot) => {
       if (snapshot.exists()) {
         const players = snapshot.val();
         Object.keys(players).forEach(key =>{
           let x=`<tr><th>${key}</th><th>${players[key].money}</th>`
           document.getElementById(number).innerHTML+=x;
-        }).then(() => {
-          resolve();
-        }).catch((error) => {
-          reject(error);
-        });
-      }
-      else {
-        reject();
+        })
       }
     });
-    
-  })
 }
 
   load_page();

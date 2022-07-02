@@ -79,11 +79,11 @@
     if (snapshot.exists()) {
       const past_data = snapshot.val();
 
-      Object.keys(past_data).forEach(date => {
-        let this_date = past_data[date];
-        console.log(thsi_date);
+      Object.keys(past_data).forEach(key => {
+        let date = past_data[key];
+        console.log(date);
 
-        let s=`<tr><th>${date}</th><th>${past_data[date].name}</th>`;
+        let s=`<tr><th>${key}</th><th>${past_data[key].name}</th>`;
         
       });
 

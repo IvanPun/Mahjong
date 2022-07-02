@@ -85,12 +85,12 @@
   get(child(dbRef, 'now_data')).then((snapshot) => {
     if (snapshot.exists()) {
       const players = snapshot.val().players;
-
+      if (players!=null) {
       Object.keys(players).forEach(key => {
         let s=`<tr><th>${key}</th><th>${players[key].money}</th>`;
         document.getElementById("output").innerHTML+=s;
       });
-
+      }
     } else {
       console.log("No data available");
     }
@@ -123,6 +123,8 @@
             remove(ref(db, 'now_data/' + 'players/' + name));
   
           });
+        }else{
+          alert("暫時未有數據");
         }
       } else {
         console.log("No data available");

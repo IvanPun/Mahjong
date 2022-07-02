@@ -92,7 +92,7 @@
                     </tbody>
                   </table></div>`
           document.getElementById("output").innerHTML+=s;
-          get(child(dbRef, 'past_data/' + key)).then((snapshot) => {
+          await get(child(dbRef, 'past_data/' + key)).then((snapshot) => {
             if (snapshot.exists()) {
               const date = snapshot.val();
               Object.keys(date).forEach(key =>{

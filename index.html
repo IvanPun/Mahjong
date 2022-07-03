@@ -108,7 +108,7 @@
             //get time
             let replace_word = '/';
             let date = String((new Date).toLocaleDateString()).replace(/replace_word/gi,'-');
-            let time = String((new Date()).toTimeString()).substring(0,7);
+            let time = String((new Date()).toTimeString()).substring(0,8);
             let now_time = date + ' ' + time;
             let name = key; 
             let money = players[key].money;
@@ -141,11 +141,6 @@
     
   }
 
-  let replace_word = '/';
-  let date = String((new Date).toLocaleDateString()).replace(/replace_word/gi,'-');
-  let time = String((new Date()).toTimeString()).substring(0,8);
-  let now_time = date + ' ' + time;
-  console.log(now_time);
   document.getElementById("submit_button").onclick=submit_data;
 
   

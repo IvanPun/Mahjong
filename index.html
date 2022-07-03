@@ -143,8 +143,7 @@
   }
 
   document.getElementById("submit_button").onclick=submit_data;
-  let replace_word = '/';
-  let date = String((new Date).toLocaleDateString()).replace(/replace_word/gi,'-');
+  let date = String((new Date).toLocaleDateString()).replaceAll('/','-');
   let time = String((new Date()).toTimeString()).substring(0,8);
   let now_time = date + ' ' + time;
   console.log(now_time);

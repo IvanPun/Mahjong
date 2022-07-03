@@ -106,7 +106,8 @@
         if (players!=null) {
           Object.keys(players).forEach(key => {
             //get time
-            let date = String((new Date).toLocaleDateString()).replace('/','-');
+            let replace_word = '/';
+            let date = String((new Date).toLocaleDateString()).replace(/replace_word/gi,'-');
             let time = String((new Date()).toTimeString()).substring(0,7);
             let now_time = date + ' ' + time;
             let name = key; 
@@ -139,8 +140,6 @@
 
     
   }
-  let str='This is Apple. Apple is yummy.'
-  console.log(str.replace(/Apple/gi,'Banana'));
 
   document.getElementById("submit_button").onclick=submit_data;
 

@@ -106,7 +106,7 @@
         if (players!=null) {
           Object.keys(players).forEach(key => {
             //get time
-            let now_time = String(new Date()).substring(0,24);
+            let now_time = String((new Date()).toISOString()).substring(0,18);
             let name = key; 
             let money = players[key].money;
             //upload data

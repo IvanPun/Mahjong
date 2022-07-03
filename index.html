@@ -106,7 +106,7 @@
         if (players!=null) {
           Object.keys(players).forEach(key => {
             //get time
-            let date = String((new Date).toLocaleDateString());
+            let date = String((new Date).toLocaleDateString()).replace('/','-');
             let time = String((new Date()).toTimeString()).substring(0,7);
             let now_time = date + ' ' + time;
             let name = key; 

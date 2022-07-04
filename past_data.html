@@ -123,11 +123,9 @@
 
   load_page();
 
-  db.ref('past_data/').orderByKey().once('value', function (snapshot) {
-      snapshot.forEach(function (item) {
-          console.log(item.key + " " + item.val());
-      })
-  });
+  const topUserPostsRef = query(ref(db, 'past_data'), orderByChild());
+  console.log(topUserPostsRef);
+
 
 </script>
 <script type="text/javascript" src="main.js"></script>

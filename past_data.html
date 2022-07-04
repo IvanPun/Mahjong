@@ -92,7 +92,8 @@
                     
                       </tbody>
                     </table></div>`
-            document.getElementById("output").innerHTML+=s;
+            let html = document.getElementById("output").innerHTML;
+            document.getElementById("output").innerHTML = s+html;
             viewdata(key, number)
             number += 1;
           }
@@ -123,8 +124,6 @@
 
   load_page();
 
-  const topUserPostsRef = query(ref(db, 'past_data'), orderByChild());
-  console.log(topUserPostsRef);
 
 
 </script>

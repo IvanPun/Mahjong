@@ -108,8 +108,8 @@
             //get time
             let t = new Date();
             let year = t.getFullYear();
-            let month = t.getMonth();
-            let day = t.getDay();
+            let month = t.getMonth() + 1;
+            let day = t.getDate();
             let date = year + "-" + month + "-" + day;
             let time = String((new Date()).toTimeString()).substring(0,8);
             let now_time = date + ' ' + time;

@@ -226,27 +226,26 @@ async function write_data2() {
             }
           }
         }
+
+        get(child(dbRef, 'now_data/' + 'players/' + name3)).then((snapshot) => {
+          if (snapshot.exists()) {
+            let money2 = snapshot.val().money + change_number *3;
+            update(ref(db),{
+              ['now_data/' + 'players/' + name3]:{
+                money:money2
+              }
+            });
+          }
+        });
+        alert("完成更改");
+        document.location.href="index.html";
       }
       
-
-      get(child(dbRef, 'now_data/' + 'players/' + name3)).then((snapshot) => {
-        if (snapshot.exists()) {
-          let money2 = snapshot.val().money + change_number *3;
-          update(ref(db),{
-            ['now_data/' + 'players/' + name3]:{
-              money:money2
-            }
-          });
-        }
-      });
-
-
     }
     else{
       alert("輸入番數並不是數字");
     }
-    alert("完成更改");
-    document.location.href="index.html";
+    
   };
 
     

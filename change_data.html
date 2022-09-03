@@ -153,7 +153,7 @@
 
       get(child(dbRef, 'now_data/' + 'players/' + name1)).then((snapshot) => {
         if (snapshot.exists()) {
-          let money1 = snapshot.val().money - change_number;
+          let money1 = snapshot.val().money - change_number *1;
           update(ref(db),{
             ['now_data/' + 'players/' + name1]:{
               money:money1

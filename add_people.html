@@ -87,12 +87,12 @@
     const db = getDatabase();
 
     set(ref(db, 'now_data/' + 'players/' + name), {
-        money: 0,
+        money: 0*1,
     });
 
     update(ref(db),{
       ['now_data/' + 'players/' + name]:{
-        money:0
+        money:0*1,
       }
     });
     
